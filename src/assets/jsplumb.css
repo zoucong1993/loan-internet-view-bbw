@@ -1,0 +1,329 @@
+.jtk-main {
+    /*padding: 30px;*/
+    width: 1000px;
+    position: relative;
+}
+
+.jtk-canvas {
+    height:550px;
+    max-height:700px;
+    border:1px solid #CCC;
+    display: flex;
+    background: linear-gradient(to bottom, transparent 11px, #e3e3e3 12px),linear-gradient(to right, transparent 11px, #e3e3e3 12px);
+    /*background: radial-gradient(circle 3px, #A8B5C2, #A8B5C2, #fff);*/
+    background-size: 12px 12px;
+}
+#canvasBg{
+    position: absolute;
+}
+
+.canvas-wide {
+    margin-left:30px;
+}
+
+/* title */
+.jtk-title{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width:100px;
+    height: 50px;
+    background-color: #CCC;
+}
+
+/* 左侧节点类型栏 */
+.jtk-main .itempannel{
+    height: 545px;
+    position: absolute;
+    left: -21px;
+    z-index: 2;
+    background: #F7F9FB;
+    width: 50px;
+    padding-top: 8px;
+    border-right: 1px solid #E6E9ED;
+}
+.jtk-main .itempannel ul{
+    padding: 0;
+    list-style: none;
+    fill: #333;
+}
+.jtk-main .itempannel ul>li{
+    padding: 5px 0;
+    text-align: center;
+    transition: background .3s;
+    user-select: none;
+}
+.jtk-main .itempannel ul i{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+.jtk-main .itempannel .start, .jtk-main .w .start{
+    background: url('../assets/icon/jsplumb_svg/start.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .end, .jtk-main .w .end{
+    background: url('../assets/icon/jsplumb_svg/end.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .querierScheduleExecutor, .jtk-main .w .querierScheduleExecutor{
+    /*30C4E9*/
+    background: url('../assets/icon/jsplumb_svg/qry.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .ruleProjectScheduleExecutor, .jtk-main .w .ruleProjectScheduleExecutor{
+    background: url('../assets/icon/jsplumb_svg/level.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .branch-node, .jtk-main .w .branch-node{
+    background: url('../assets/icon/jsplumb_svg/branch.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .tranConfigScheduleExecutor, .jtk-main .w .tranConfigScheduleExecutor{
+    background: url('../assets/icon/jsplumb_svg/child.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel .group, .jtk-main .w .group{
+    background: url('../assets/icon/jsplumb_svg/group.svg') no-repeat center;
+    background-size: 20px;
+}
+.jtk-main .itempannel ul i:hover{
+    background-color: #E6E9ED;
+}
+.jtk-main .itempannel ul i.active{
+    background-color: #E6E9ED;
+}
+/* 左侧节点类型栏结束 */
+
+/* 右侧设置文字 */
+.jtk-main .set-text{
+    box-sizing: border-box;
+    list-style: none;
+    position: absolute;
+    right: -160px;
+    top: -16px;
+    width: 160px;
+    height: 550px;
+    padding: 0 20px 0;
+    background-color: #F7F9FB;
+}
+.jtk-main .set-text .tit{
+    /*padding: 15px 0 0;*/
+}
+.jtk-main .set-text .row{
+    margin: 15px 0;
+}
+.jtk-main .set-text .el-input .el-input__inner{
+    height: 35px;
+    font-size: 12px;
+}
+.jtk-main .set-text .el-textarea .el-textarea__inner{
+    /*height: 50px;*/
+    font-size: 12px;
+}
+.jtk-main .set-text .set-btn .btn-con{
+    height: 35px;
+}
+.jtk-main .set-text .row-attr{
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+/* 右侧设置文字结束 */
+
+.jtk-connector {
+    z-index:9;
+}
+
+.jtk-endpoint {
+    z-index:12;
+    opacity:0.8;
+    cursor:pointer;
+}
+
+.jtk-overlay {
+    background-color: white;
+    color: #434343;
+    font-weight: 400;
+    padding: 4px;
+    z-index:10;
+
+}
+
+.jtk-overlay.jtk-hover {
+    color: #434343;
+}
+
+
+.window.jtk-connected {
+    /*border: 1px solid green;*/
+}
+
+.jtk-drag {
+    /*outline: 4px solid pink !important;*/
+}
+
+path, .jtk-endpoint {
+    cursor: pointer;
+}
+
+.jtk-overlay {
+    background-color:transparent;
+}
+
+/* 节点 */
+.jtk-main .w {
+    padding: 3px 3px 3px 34px;
+    position: absolute;
+    z-index: 4;
+    border: 1px solid rgba(255,255,255,0);
+    box-shadow: 1px 1px 2px #636363;
+    border-radius: 5px;
+    opacity: 0.8;
+    cursor: move;
+    min-width: 68px;
+    max-width: 100px;
+    min-height: 30px;
+    line-height: 30px;
+    background-color: #86c0fd;
+    font-size: 12px;
+    color: #333;
+    /* 禁止选中节点上的文字 */
+    user-select: none;
+}
+.jtk-main .w .text{
+    display: inline-block;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.jtk-main .w .icon{
+    position: absolute;
+    left: 0;
+    top: calc(50% - 15px);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+.jtk-main .w.clicked{
+    color: #111;
+    opacity: 1;
+}
+
+.jtk-main .w.circle{
+    /*width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+    border-radius: 25px;*/
+}
+
+.jtk-main .w:hover {
+    /*border: 1px solid #1890FF;*/
+    /*background-color:#F3F9FF ;*/
+    opacity: 1;
+}
+.jtk-main .template{
+    display: inline-block;
+    width: 107px;
+    height: 37px;
+    position: absolute;
+    top: -37px;
+    left: -107px;
+    border: 1px dashed #1890FF;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.jtk-main .aLabel {
+    transition: background-color 0.25s ease-in;
+}
+
+/* 节点结束 */
+
+/*.aLabel.jtk-hover{*/
+    /*border: 1px solid #1890FF;*/
+/*}*/
+/*.jtk-main .jtk-connector path:not(:first-of-type){*/
+    /*stroke: #C3CCD6;*/
+/*}*/
+
+.jtk-source-hover, .jtk-target-hover{
+    background-color: #E6E9ED;
+}
+.jtk-main .aLabel {
+    padding: 0.3em;
+    cursor: pointer;
+    font-size: 12px;
+    color: #444;
+}
+
+/* 连线节点 */
+
+.jtk-main .ep {
+    opacity: 0;
+    position: absolute;
+    bottom: -4px;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #444;
+    cursor: crosshair;
+    box-shadow: 0 0 2px black;
+    transition: box-shadow 0.25s ease-in;
+}
+.jtk-main .ep.up{
+    top: -0.5em;
+    left: 49%;
+}
+.jtk-main .ep.left{
+    left: -0.5em;
+    top: 49%;
+}
+.jtk-main .ep.right{
+    right: -0.5em;
+    top: 49%;
+}
+.jtk-main .ep:hover {
+    opacity: 1;
+    box-shadow: 0 0 6px black;
+}
+.jtk-main .w:hover .ep{
+    opacity: 1;
+}
+
+/* 连线 结束 */
+
+.jtk-main .statemachine-demo .jtk-endpoint {
+    z-index: 3;
+}
+
+.jtk-main .el-icon-circle-close{
+    opacity: 0;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    cursor: pointer;
+}
+.jtk-main .w:hover .el-icon-circle-close{
+    opacity: 1;
+}
+
+#opened {
+    left: 10em;
+    top: 5em;
+}
+
+.jtk-main .dragHover {
+    border: 1px solid orange;
+}
+
+path, .jtk-endpoint { cursor:pointer; }
+
+@media (max-width: 600px) {
+    .jtk-canvas {
+        margin-left: 0;
+        margin-top:10px;
+        height:364px;
+    }
+}
