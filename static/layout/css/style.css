@@ -1,0 +1,178 @@
+﻿@charset "utf-8";
+/*-----------------------------------// 全局样式 //-----------------------------------*/
+
+body {
+    font-family: "微软雅黑", Arial, sans-serif;
+}
+
+/** 弹框样式：el-dialog */
+
+.el-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    max-height: calc(100% - 30px);
+    max-width: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+}
+
+.el-dialog__header {
+    background: #2e7ef3;
+}
+
+.el-dialog__title {
+    color: #fff;
+    font-size: 20px;
+}
+
+.el-dialog__body {
+    font-size: 1rem;
+    /*font-weight: bold;*/
+    overflow: auto;
+}
+
+.el-dialog__headerbtn .el-dialog__close {
+    color: #fff;
+}
+
+/** 卡片样式：el-card */
+
+.el-card__header {
+    background: #eee;
+    padding: 10px 20px;
+}
+
+/** 日期选择器样式：el-date-picker */
+
+.el-date-editor.el-input,
+.el-date-editor.el-input__inner {
+    width: 100%;
+}
+
+/** 下拉框样式：el-select */
+
+.el-select {
+    width: 100%;
+}
+
+.el-select .el-input__inner {
+    height: 32px;
+    line-height: 32px;
+}
+
+/** 阿里图标库配合elementui*/
+
+[class^="el-icon-loan"],
+[class*=" el-icon-loan"]
+/*这里有空格*/
+
+    {
+    font-family: "iconfont" !important;
+    /*font-size:16px; 和element有冲突*/
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/** 标签页样式：el-tabs */
+
+.el-tabs--card>.el-tabs__header {
+    background-color: #F3F3EF;
+    border-bottom: 1px solid #e4e7ed;
+    margin: 0;
+}
+
+.el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    color: #409EFF;
+    background-color: #fff;
+    border-right-color: #dcdfe6;
+    border-left-color: #dcdfe6;
+}
+
+.el-tabs__item {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/** 表格样式：el-table */
+
+.el-table thead {
+    color: #303133;
+    font-weight: 500;
+}
+
+.el-radio,
+.el-table th {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+}
+
+.el-upload {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: 0;
+    margin-left: 10px;
+}
+
+/** 下拉菜单：el-dropdown */
+
+.el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+}
+
+.el-icon-arrow-down {
+    font-size: 12px;
+}
+
+/** 导航菜单：el-menu **/
+
+.el-menu .el-menu--popup .el-menu--popup-right-start {
+    max-height: 800px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/** 首页card行点击，弹出的dialog样式 **/
+
+.el_dialog_content .el-dialog .el-dialog__header {
+    padding: 20px 20px 20px;
+}
+
+.el_dialog_content .el-dialog .el-dialog__body {
+    padding: 0px 10px;
+}
+
+.el-table__body tr.current-row>td {
+    background: rgba(185, 221, 249, .75) !important;
+}
+
+.el-input__inner {
+    padding: 0 8px;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (max-width:1440px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+.el-table--medium td,
+.el-table--medium th {
+    padding: 0.43rem 0;
+}
+
+@media print {
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+}
